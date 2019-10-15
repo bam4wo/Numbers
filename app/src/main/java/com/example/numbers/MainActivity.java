@@ -18,21 +18,21 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView number;
     private FloatingActionButton fab;
-
+    int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.plus);
         setSupportActionBar(toolbar);
-
+        number = findViewById(R.id.num);
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                number = findViewById(R.id.num);
-                number.setText("1");
+                counter++;
+                number.setText(String.valueOf(counter));
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         //.setAction("Action", null).show();
             }
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onclick(View view){
-        number = findViewById(R.id.num);
-        number.setText("0");
+        counter = 0;
+        number.setText(String.valueOf(counter));
     }
 
 
